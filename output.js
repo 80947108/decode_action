@@ -1,302 +1,122 @@
-//Thu Oct 09 2025 03:47:19 GMT+0000 (Coordinated Universal Time)
+//Fri Oct 24 2025 06:14:58 GMT+0000 (Coordinated Universal Time)
 //Base:<url id="cv1cref6o68qmpt26ol0" type="url" status="parsed" title="GitHub - echo094/decode-js: JS混淆代码的AST分析工具 AST analysis tool for obfuscated JS code" wc="2165">https://github.com/echo094/decode-js</url>
 //Modify:<url id="cv1cref6o68qmpt26olg" type="url" status="parsed" title="GitHub - smallfawn/decode_action: 世界上本来不存在加密，加密的人多了，也便成就了解密" wc="741">https://github.com/smallfawn/decode_action</url>
-var inputField = document.getElementById("input-field"),
-  clearInputButton = document.getElementById("clear-input-button"),
-  optionsList = document.getElementById("optionsList");
-inputField.addEventListener("input", function () {
-  inputField.value.trim() !== "" ? clearInputButton.style.display = "flex" : clearInputButton.style.display = "none";
-});
-function clearInput() {
-  inputField.value = "";
-  clearInputButton.style.display = "none";
-  optionsList.style.display = "none";
-}
-let cachedData = null;
-async function fetchData() {
-  if (cachedData) return cachedData;
-  try {
-    const _0x51a0fc = await fetch("/static/M.json", {
-      "cache": "no-store"
-    });
-    if (!_0x51a0fc.ok) throw new Error("HTTP 错误！状态码: " + _0x51a0fc.status);
-    const _0x348629 = await _0x51a0fc.json();
-    cachedData = _0x348629;
-    return _0x348629;
-  } catch (_0x26d290) {
-    console.error("获取数据失败:", _0x26d290);
-    throw _0x26d290;
-  }
-}
-function renderOptions(_0x998d9a) {
-  const _0x1dc6c9 = document.getElementById("optionsList"),
-    _0x4e2d59 = document.getElementById("input-container");
-  _0x1dc6c9.innerHTML = "";
-  _0x1dc6c9.style.width = _0x4e2d59.offsetWidth + "px";
-  if (_0x998d9a.urls && _0x998d9a.urls.length > 0) _0x998d9a.urls.forEach(_0x4740fe => {
-    const _0x5cd5f6 = document.createElement("div");
-    _0x5cd5f6.classList.add("option");
-    _0x5cd5f6.onclick = () => selectOption(_0x4740fe.url);
-    const _0x51ff70 = document.createElement("span");
-    _0x51ff70.textContent = _0x4740fe.name;
-    const _0x2b7bfa = document.createElement("span");
-    _0x2b7bfa.textContent = _0x4740fe.url;
-    _0x2b7bfa.classList.add("url");
-    const _0x38a237 = document.createElement("div");
-    _0x38a237.classList.add("scrollable");
-    _0x38a237.appendChild(_0x2b7bfa);
-    _0x5cd5f6.appendChild(_0x51ff70);
-    _0x5cd5f6.appendChild(_0x38a237);
-    _0x1dc6c9.appendChild(_0x5cd5f6);
-  });else {
-    _0x1dc6c9.innerHTML = "<div class=\"error\">无可用数据</div>";
-  }
-}
-function toggleOptions() {
-  const _0x49d440 = document.getElementById("optionsList");
-  if (_0x49d440.style.display === "block") {
-    _0x49d440.style.display = "none";
-    return;
-  }
-  _0x49d440.innerHTML = "<div class=\"loading\">加载中...</div>";
-  _0x49d440.style.display = "block";
-  fetchData().then(_0x2b8bec => {
-    renderOptions(_0x2b8bec);
-  }).catch(_0x2b6c43 => {
-    console.error("加载失败:", _0x2b6c43);
-    _0x49d440.innerHTML = "<div class=\"error\">加载失败，请刷新重试</div>";
-  });
-}
-function selectOption(_0xc42dcc) {
-  inputField.value = _0xc42dcc;
-  optionsList.style.display = "none";
-  clearInputButton.style.display = "flex";
-}
-document.addEventListener("click", function (_0x129e93) {
-  !_0x129e93.target.closest("#input-wrapper") && (optionsList.style.display = "none");
-});
-function getIPTV() {
-  var _0x1fd0a1 = inputField.value;
-  if (_0x1fd0a1 === "") {
-    {
-      showErrorMessage("请输入接口链接！");
-      return;
-    }
-  }
-  document.getElementById("loading-message").style.display = "block";
-  document.getElementById("error-message").style.display = "none";
-  fetch("https://412.2015888.xyz/jiemi/get_jiemi.php", {
-    "method": "POST",
-    "headers": {
-      "Content-Type": "application/x-www-form-urlencoded"
-    },
-    "body": "url=" + encodeURIComponent(_0x1fd0a1)
-  }).then(_0x3ad9df => {
-    document.getElementById("loading-message").style.display = "none";
-    if (!_0x3ad9df.ok) {
-      {
-        showErrorMessage("请求失败，状态码：" + _0x3ad9df.status);
-        throw new Error("请求失败，状态码：" + _0x3ad9df.status);
-      }
-    }
-    return _0x3ad9df.text();
-  }).then(_0x4714ca => {
-    {
-      if (_0x4714ca.trim() === "") showErrorMessage("请检查链接是否正确。");else try {
-        {
-          var _0x26c088 = JSON.parse(_0x4714ca),
-            _0x4b4ba4 = JSON.stringify(_0x26c088, null, 4);
-          _0x4b4ba4 = _0x4b4ba4.replace(/("(sites|lives|parses|rules|proxy|flags|ijk|doh|ips)": \[\n)([\s\S]*?)(\n    ])/g, function (_0x203ddc, _0x564860, _0x1ad8a6, _0x1544f6, _0x570cd9) {
-            var _0x603222 = _0x1544f6.replace(/^ {4}/gm, "");
-            return _0x564860 + _0x603222 + _0x570cd9;
-          });
-          document.getElementById("output").value = _0x4b4ba4;
-        }
-      } catch (_0x2066f4) {
-        document.getElementById("output").value = _0x4714ca;
-      }
-    }
-  }).catch(_0x2caee0 => {
-    document.getElementById("loading-message").style.display = "none";
-    showErrorMessage("网络请求失败，请检查网页链接的合法性，或者稍后重试。错误详情：" + _0x2caee0.message + "。");
-  });
-}
-function toggleLoading(_0xe62db4) {
-  if (_0xe62db4) document.body.style.cursor = "progress";else {
-    document.body.style.cursor = "default";
-  }
-}
-function copyInput() {
-  if (inputField.value === "") {
-    showErrorMessage("输入框为空，无法复制！");
-    return;
-  }
-  inputField.select();
-  document.execCommand("copy");
-  alert("已复制接口链接到剪贴板！");
-}
-function copyOutput() {
-  var _0x14ae97 = document.getElementById("output");
-  if (_0x14ae97.value.trim() === "") {
-    showErrorMessage("输出框为空，无法复制！");
-    return;
-  }
-  _0x14ae97.select();
-  document.execCommand("copy");
-  alert("已复制内容到剪贴板！");
-}
-function downloadJar() {
-  const _0x7cd388 = document.getElementById("output"),
-    _0x2fb9bb = document.getElementById("input-field"),
-    _0x21be6b = _0x7cd388.value.trim(),
-    _0x27d9b8 = _0x2fb9bb.value.trim();
-  if (!_0x21be6b) {
-    alert("输出框为空，无法提取链接！");
-    return;
-  }
-  if (!_0x27d9b8) {
-    {
-      alert("输入框为空，无法获取链接！");
-      return;
-    }
-  }
-  const _0x18c9cc = _0x21be6b.match(/"spider":\s*"(.*?)(?=[";])/);
-  if (!_0x18c9cc?.[1]) {
-    {
-      alert("输出框中未找到 spider 属性下的链接！");
-      return;
-    }
-  }
-  let _0x2825fe = _0x18c9cc[1].trim();
-  if (_0x2825fe.startsWith("./")) {
-    const _0x3819b8 = _0x27d9b8.match(/(https?:\/\/[^\/]+(?:\/[^\/]*)*\/)/);
-    if (!_0x3819b8) {
-      {
-        alert("无法从输入框提取基础链接！");
-        return;
-      }
-    }
-    _0x2825fe = _0x3819b8[1] + _0x2825fe.slice(2);
-  }
-  alert(" jar 下载链接：\n" + _0x2825fe);
-  if (/^https?:\/\/我不是\.摸鱼儿\.com\//.test(_0x2825fe) || /^https?:\/\/jar\.u\.xn--dkw\.xn/.test(_0x2825fe)) {
-    copyAndAlert(_0x2825fe);
-    return;
-  }
-  tryAllDownloadMethods(_0x2825fe);
-}
-function tryAllDownloadMethods(_0x9cd51a) {
-  if (isSpecialDomain(_0x9cd51a)) {
-    copyAndAlert(_0x9cd51a);
-    return;
-  }
-  simpleDownload(_0x9cd51a);
-  setTimeout(() => {
-    !downloadSuccess && iframeDownload(_0x9cd51a);
-    setTimeout(() => {
-      if (!downloadSuccess) {
-        forceBlobDownload(_0x9cd51a);
-      }
-    }, 2000);
-  }, 5000);
-}
-let downloadSuccess = false;
-function isSpecialDomain(_0x5206f6) {
-  return /^https?:\/\/我不是\.摸鱼儿\.com\//.test(_0x5206f6) || /^https?:\/\/jar\.u\.xn--dkw\.xn/.test(_0x5206f6);
-}
-function simpleDownload(_0x29cc18) {
-  const _0x5c37ee = document.createElement("a");
-  _0x5c37ee.href = _0x29cc18;
-  _0x5c37ee.download = getFileName(_0x29cc18);
-  _0x5c37ee.style.display = "none";
-  _0x5c37ee.onclick = () => {
-    downloadSuccess = true;
-  };
-  document.body.appendChild(_0x5c37ee);
-  _0x5c37ee.click();
-  setTimeout(() => _0x5c37ee.remove(), 100);
-}
-function iframeDownload(_0xf8d568) {
-  const _0x493329 = document.createElement("iframe");
-  _0x493329.src = _0xf8d568;
-  _0x493329.style.display = "none";
-  _0x493329.onload = () => {
-    downloadSuccess = true;
-  };
-  document.body.appendChild(_0x493329);
-  setTimeout(() => _0x493329.remove(), 5000);
-}
-function forceBlobDownload(_0x2d2e09) {
-  fetch(_0x2d2e09, {
-    "headers": {
-      "User-Agent": "okhttp/5.0.0"
-    },
-    "redirect": "follow"
-  }).then(_0x1216fd => {
-    if (!_0x1216fd.ok) throw new Error("HTTP " + _0x1216fd.status);
-    return _0x1216fd.blob();
-  }).then(_0x406b => {
-    const _0x31de52 = URL.createObjectURL(_0x406b),
-      _0x3dd17d = document.createElement("a");
-    _0x3dd17d.href = _0x31de52;
-    _0x3dd17d.download = getFileName(_0x2d2e09);
-    _0x3dd17d.style.display = "none";
-    _0x3dd17d.onclick = () => {
-      downloadSuccess = true;
+function main(_0x1f3d8a) {
+  return function (_0x3f8a9d) {
+    const _0x2c7d1e = _0x3f8a9d['url'];
+    const _0x4b8f29 = {
+      '\x68\x79': '\x68\x75\x79\x61',
+      '\x79\x79': '\x79\x79',
+      '\x64\x79': '\x64\x6f\x75\x79\x75'
     };
-    document.body.appendChild(_0x3dd17d);
-    _0x3dd17d.click();
-    setTimeout(() => {
-      _0x3dd17d.remove();
-      URL.revokeObjectURL(_0x31de52);
-    }, 100);
-  }).catch(_0x4cf7ca => console.error("Blob下载失败:", _0x4cf7ca));
-}
-function getFileName(_0x48f1f8) {
-  const _0x322df5 = new URL(_0x48f1f8).pathname.split("/").pop() || "file.jar";
-  return _0x322df5.endsWith(".jar") ? _0x322df5 : "file.jar";
-}
-function copyAndAlert(_0xd52a31) {
-  copyToClipboard(_0xd52a31).then(() => alert("请粘贴到支持修改UA的下载工具或浏览器中手动下载\n\n推荐使用手机浏览器、\"IDM+\"等下载工具\n\njar下载链接：\n\n" + _0xd52a31)).catch(() => alert("无法复制链接，请手动记录：\n" + _0xd52a31));
-}
-function copyToClipboard(_0x12c099) {
-  return new Promise((_0x44e376, _0x2ba072) => {
-    if (navigator.clipboard) navigator.clipboard.writeText(_0x12c099).then(_0x44e376).catch(_0x2ba072);else {
-      {
-        const _0x116ffc = document.createElement("textarea");
-        _0x116ffc.value = _0x12c099;
-        _0x116ffc.style.position = "fixed";
-        document.body.appendChild(_0x116ffc);
-        _0x116ffc.select();
-        try {
-          {
-            const _0x484c10 = document.execCommand("copy");
-            document.body.removeChild(_0x116ffc);
-            _0x484c10 ? _0x44e376() : _0x2ba072(new Error("复制失败"));
-          }
-        } catch (_0x17ce99) {
-          document.body.removeChild(_0x116ffc);
-          _0x2ba072(_0x17ce99);
-        }
+    let _0x4e8b2a = "";
+    let _0x5d6c7f = "";
+    for (const [_0x3a81cf, _0x1b9f3a] of Object['\x65\x6e\x74\x72\x69\x65\x73'](_0x4b8f29)) {
+      const _0x2f4d6c = ku9['\x67\x65\x74\x51\x75\x65\x72\x79'](_0x2c7d1e, _0x3a81cf);
+      if (_0x2f4d6c) {
+        _0x4e8b2a = _0x1b9f3a;
+        _0x5d6c7f = _0x2f4d6c;
+        break;
       }
     }
-  });
+    if (!_0x4e8b2a) {
+      throw new Error('\u672a\u6307\u5b9a\u5e73\u53f0\u53c2\u6570');
+    }
+    const _0x5a82c3 = function (_0x3c7a1b, _0x2e8d4f) {
+      const _0x5b12ae = {
+        '\x68\x75\x79\x61': function (_0x1d7f3e = "\x31\x31\x33\x34\x32\x34\x31\x32") {
+          try {
+            const _0x3e6c28 = /^[a-zA-Z]/['\x74\x65\x73\x74'](_0x1d7f3e) ? _0x1d7f3e['\x73\x6c\x69\x63\x65'](1) : _0x1d7f3e;
+            const _0x2a4f5c = `\x68\x74\x74\x70\x73\x3a\x2f\x2f\x6d\x70\x2e\x68\x75\x79\x61\x2e\x63\x6f\x6d\x2f\x63\x61\x63\x68\x65\x2e\x70\x68\x70\x3f\x6d\x3d\x4c\x69\x76\x65\x26\x64\x6f\x3d\x70\x72\x6f\x66\x69\x6c\x65\x52\x6f\x6f\x6d\x26\x72\x6f\x6f\x6d\x69\x64\x3d${_0x3e6c28}`;
+            const _0x5c82d1 = ku9['\x72\x65\x71\x75\x65\x73\x74'](_0x2a4f5c, "\x47\x45\x54");
+            const _0x4a19b2 = JSON['\x70\x61\x72\x73\x65'](_0x5c82d1['\x62\x6f\x64\x79']);
+            if (_0x4a19b2['\x73\x74\x61\x74\x75\x73'] !== 200 || _0x4a19b2['\x64\x61\x74\x61']['\x72\x65\x61\x6c\x4c\x69\x76\x65\x53\x74\x61\x74\x75\x73'] === '\x4f\x46\x46') {
+              return {
+                '\x75\x72\x6c': ""
+              };
+            }
+            const _0x2e3f8a = _0x4a19b2['\x64\x61\x74\x61'];
+            const _0x3d8c7a = _0x2e3f8a['\x70\x72\x6f\x66\x69\x6c\x65\x49\x6e\x66\x6f']?.['\x75\x69\x64'] || "";
+            const _0x5b9e21 = _0x2e3f8a['\x73\x74\x72\x65\x61\x6d']?.['\x62\x61\x73\x65\x53\x74\x65\x61\x6d\x49\x6e\x66\x6f\x4c\x69\x73\x74']?.[0]?.['\x73\x53\x74\x72\x65\x61\x6d\x4e\x61\x6d\x65'] || "";
+            const _0x4c2e1f = [0, 1, 2, 3]['\x66\x69\x6e\x64'](_0x2f9a87 => _0x2e3f8a['\x73\x74\x72\x65\x61\x6d']?.['\x66\x6c\x76']?.['\x6d\x75\x6c\x74\x69\x4c\x69\x6e\x65']?.[_0x2f9a87]?.['\x75\x72\x6c']);
+            if (_0x4c2e1f === undefined) return {
+              '\x75\x72\x6c': ""
+            };
+            const _0x1a7d3c = _0x2e3f8a['\x73\x74\x72\x65\x61\x6d']['\x66\x6c\x76']['\x6d\x75\x6c\x74\x69\x4c\x69\x6e\x65'][_0x4c2e1f]['\x75\x72\x6c'];
+            const _0x2f6b5d = ku9['\x55\x72\x69'](_0x1a7d3c);
+            const _0x3a4e1c = `${_0x2f6b5d['\x53\x63\x68\x65\x6d\x65']}:\x2f\x2f${_0x2f6b5d['\x48\x6f\x73\x74']}${_0x2f6b5d['\x46\x75\x6c\x6c\x50\x61\x74\x68']}`;
+            const _0x5e8f2c = Math['\x66\x6c\x6f\x6f\x72'](Date['\x6e\x6f\x77']() / 1000);
+            const _0x4d29b8 = String(parseInt(_0x3d8c7a) + _0x5e8f2c);
+            const _0x3c9a7e = Math['\x66\x6c\x6f\x6f\x72'](_0x5e8f2c + 600)['\x74\x6f\x53\x74\x72\x69\x6e\x67'](16);
+            const _0x2a18df = ku9['\x6d\x64\x35'](`${_0x4d29b8}|\x74\x61\x72\x73\x5f\x69\x70\x68\x6f\x6e\x65|\x31\x30\x32`);
+            const _0x1e7f4a = `\x44\x57\x71\x38\x42\x63\x4a\x33\x68\x36\x44\x4a\x74\x36\x54\x59\x5f${_0x3d8c7a}_${_0x5b9e21}_${_0x2a18df}_${_0x3c9a7e}`;
+            const _0x5763c2 = ku9['\x6d\x64\x35'](_0x1e7f4a);
+            const _0x4b8f20 = [`\x77\x73\x53\x65\x63\x72\x65\x74\x3d${_0x5763c2}`, `\x77\x73\x54\x69\x6d\x65\x3d${_0x3c9a7e}`, '\x63\x74\x79\x70\x65\x3d\x74\x61\x72\x73\x5f\x69\x70\x68\x6f\x6e\x65', `\x73\x65\x71\x69\x64\x3d${_0x4d29b8}`, `\x75\x69\x64\x3d${_0x3d8c7a}`, '\x66\x73\x3d\x62\x67\x63\x74', '\x76\x65\x72\x3d\x31', '\x74\x3d\x31\x30\x32']['\x6a\x6f\x69\x6e']("\x26");
+            return {
+              '\x75\x72\x6c': `${_0x3a4e1c}?${_0x4b8f20}`,
+              '\x70\x6c\x61\x74\x66\x6f\x72\x6d': "\x68\x75\x79\x61",
+              '\x72\x6f\x6f\x6d\x49\x64': _0x3e6c28
+            };
+          } catch (_0x5c72e8) {
+            return {
+              '\x75\x72\x6c': ""
+            };
+          }
+        },
+        '\x79\x79': function (_0x2a9b4e = "\x31\x33\x35\x34\x32\x31\x30\x33\x35\x37") {
+          try {
+            const _0x1c8d2f = `\x68\x74\x74\x70\x3a\x2f\x2f\x69\x6e\x74\x65\x72\x66\x61\x63\x65\x2e\x79\x79\x2e\x63\x6f\x6d\x2f\x68\x6c\x73\x2f\x6e\x65\x77\x2f\x67\x65\x74\x2f${_0x2a9b4e}\x2f${_0x2a9b4e}\x2f\x31\x32\x30\x30\x3f\x73\x6f\x75\x72\x63\x65\x3d\x77\x61\x70\x79\x79\x26\x63\x61\x6c\x6c\x62\x61\x63\x6b\x3d\x6a\x73\x6f\x6e\x70\x33`;
+            const _0x3e7a5c = {
+              '\x55\x73\x65\x72\x2d\x41\x67\x65\x6e\x74': '\x4d\x6f\x7a\x69\x6c\x6c\x61\x2f\x35\x2e\x30',
+              '\x52\x65\x66\x65\x72\x65\x72': `\x68\x74\x74\x70\x3a\x2f\x2f\x77\x61\x70\x2e\x79\x79\x2e\x63\x6f\x6d\x2f\x6d\x6f\x62\x69\x6c\x65\x77\x65\x62\x2f${_0x2a9b4e}`,
+              '\x41\x63\x63\x65\x70\x74\x2d\x4c\x61\x6e\x67\x75\x61\x67\x65': '\x7a\x68\x2d\x43\x6e\x2c\x7a\x68\x3b\x71\x3d\x30\x2e\x39'
+            };
+            const _0x4d1b2e = ku9['\x67\x65\x74'](_0x1c8d2f, JSON['\x73\x74\x72\x69\x6e\x67\x69\x66\x79'](_0x3e7a5c));
+            const _0x2f8c9d = /\x68\x6c\x73\x22\x3a\x22(.*?)"/['\x65\x78\x65\x63'](_0x4d1b2e)?.[1];
+            return _0x2f8c9d ? {
+              '\x75\x72\x6c': _0x2f8c9d,
+              '\x68\x65\x61\x64\x65\x72\x73': _0x3e7a5c,
+              '\x70\x6c\x61\x74\x66\x6f\x72\x6d': "\x79\x79",
+              '\x72\x6f\x6f\x6d\x49\x64': _0x2a9b4e
+            } : {
+              '\x75\x72\x6c': ""
+            };
+          } catch (_0x5a3d1f) {
+            return {
+              '\x75\x72\x6c': ""
+            };
+          }
+        },
+        '\x64\x6f\x75\x79\x75': function (_0x3b6d5a = "\x37\x38\x31\x32\x38\x31\x30") {
+          try {
+            const _0x4e2c1f = '\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x78\x61\x70\x70\x2e\x64\x6f\x75\x79\x75\x63\x64\x6e\x2e\x63\x6e\x2f\x61\x70\x69\x2f\x6e\x63\x2f\x73\x74\x72\x65\x61\x6d\x2f\x72\x6f\x6f\x6d\x50\x6c\x61\x79\x65\x72';
+            const _0x2d7f8e = `\x72\x6f\x6f\x6d\x5f\x69\x64\x3d${_0x3b6d5a}\x26\x62\x69\x67\x5f\x63\x74\x3d\x63\x70\x68\x2d\x61\x6e\x64\x72\x6f\x69\x64\x6d\x70\x72\x6f\x26\x64\x69\x64\x3d\x31\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x31\x35\x30\x31\x26\x6d\x74\x3d\x32\x26\x72\x61\x74\x65\x3d\x30`;
+            const _0x1f9c3d = {
+              '\x43\x6f\x6e\x74\x65\x6e\x74\x2d\x54\x79\x70\x65': '\x61\x70\x70\x6c\x69\x63\x61\x74\x69\x6f\x6e\x2f\x78\x2d\x77\x77\x77\x2d\x66\x6f\x72\x6d\x2d\x75\x72\x6c\x65\x6e\x63\x6f\x64\x65\x64'
+            };
+            const _0x5e29b4 = ku9['\x72\x65\x71\x75\x65\x73\x74'](_0x4e2c1f, "\x50\x4f\x53\x54", _0x1f9c3d, _0x2d7f8e);
+            const _0x3a8b2c = JSON['\x70\x61\x72\x73\x65'](_0x5e29b4['\x62\x6f\x64\x79']);
+            return _0x3a8b2c['\x65\x72\x72\x6f\x72'] === 0 ? {
+              '\x75\x72\x6c': _0x3a8b2c['\x64\x61\x74\x61']['\x6c\x69\x76\x65\x5f\x75\x72\x6c'],
+              '\x70\x6c\x61\x74\x66\x6f\x72\x6d': "\x64\x6f\x75\x79\x75",
+              '\x72\x6f\x6f\x6d\x49\x64': _0x3b6d5a
+            } : {
+              '\x75\x72\x6c': ""
+            };
+          } catch (_0x4c1e9a) {
+            return {
+              '\x75\x72\x6c': ""
+            };
+          }
+        }
+      };
+      return _0x5b12ae[_0x3c7a1b] ? _0x5b12ae[_0x3c7a1b](_0x2e8d4f) : {
+        '\x75\x72\x6c': ""
+      };
+    }(_0x4e8b2a, _0x5d6c7f);
+    if (!_0x5a82c3['\x75\x72\x6c']) {
+      throw new Error('\u63d0\u793a\uff1a\u76f4\u64ad\u95f4\u4e0d\u5b58\u5728!\u76f4\u64ad\u95f8\u8fd8\u672a\u5f00\u64ad!');
+    }
+    return JSON['\x73\x74\x72\x69\x6e\x67\x69\x66\x79'](_0x5a82c3);
+  }(_0x1f3d8a);
 }
-function clearOutput() {
-  var _0xd68f5d = document.getElementById("input-field");
-  var _0x7a1218 = document.getElementById("output");
-  if (_0xd68f5d.value.trim() === "" && _0x7a1218.value.trim() === "") {
-    showErrorMessage("无数据，无需清空！😂");
-    return;
-  }
-  _0xd68f5d.value = "";
-  _0x7a1218.value = "";
-  clearInputButton.style.display = "none";
-  optionsList.style.display = "none";
-}
-function showErrorMessage(_0x316c04) {
-  var _0x4ddc14 = document.getElementById("error-message");
-  _0x4ddc14.textContent = _0x316c04;
-  _0x4ddc14.style.display = "block";
-}
-document.getElementById("output").readOnly = true;
