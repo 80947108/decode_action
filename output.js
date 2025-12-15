@@ -1,111 +1,119 @@
-//Mon Dec 15 2025 05:01:04 GMT+0000 (Coordinated Universal Time)
+//Mon Dec 15 2025 06:10:58 GMT+0000 (Coordinated Universal Time)
 //Base:<url id="cv1cref6o68qmpt26ol0" type="url" status="parsed" title="GitHub - echo094/decode-js: JS混淆代码的AST分析工具 AST analysis tool for obfuscated JS code" wc="2165">https://github.com/echo094/decode-js</url>
 //Modify:<url id="cv1cref6o68qmpt26olg" type="url" status="parsed" title="GitHub - smallfawn/decode_action: 世界上本来不存在加密，加密的人多了，也便成就了解密" wc="741">https://github.com/smallfawn/decode_action</url>
-function main(_0x266930) {
-  const _0x1b5b69 = {
-    sdws: [1, ""],
-    xwpd: [3, ""],
-    qlpd: [5, ""],
-    txyx: [7, ""],
-    shpd: [9, ""],
-    zypd: [11, ""],
-    wlpd: [13, ""],
-    nkpd: [15, ""],
-    sepd: [17, ""],
-    jndst: [29883, "/region"],
-    zbdst: [100010, "/region"],
-    zzdst: [100023, "/region"],
-    dydst: [100011, "/region"],
-    ytdst: [100012, "/region"],
-    wfdst: [100013, "/region"],
-    tadst: [100015, "/region"],
-    whdst: [100016, "/region"],
-    rzdst: [100017, "/region"],
-    lydst: [100019, "/region"],
-    dzdst: [100020, "/region"],
-    lcdst: [100021, "/region"],
-    bzdst: [100022, "/region"],
-    hzdst: [100024, "/region"]
-  };
-  const _0xeff6c1 = _0x266930.url;
-  const _0x476c8d = ku9.getQuery(_0xeff6c1, "id") || "sdws";
-  const _0x4f8db4 = ku9.getQuery(_0xeff6c1, "key") || "关注公共号❤️❤️：AI科技生活";
-  const _0x59591c = {
-    "关注公共号❤️❤️：AI绉戞妧鐢熸椿": "sdxw.iqilu.com"
-  };
-  const _0x5bccdf = _0x1b5b69[_0x476c8d] || _0x1b5b69.sdws;
-  const _0x4510a6 = ku9.getQuery(_0xeff6c1, "channelid") || "1";
-  var _0x45e80b = ku9.getQuery(_0xeff6c1, "playseek") || "";
-  const _0x39d760 = Math.floor(Date.now() / 1000);
-  const _0x45c4f9 = ku9.md5("huangye" + _0x39d760 + "211f68ea4aeb687a6561707b6e3523c84e");
-  const _0x1231fd = "https://" + _0x59591c[_0x4f8db4] + "/v1/app/play/tv" + _0x5bccdf[1] + "/live?e=1&e=1";
-  const _0x1f47d6 = {
-    version: "10.1.1",
-    orgid: "21",
-    platform: "android" + _0x39d760,
-    imei: "7f918d21082ed7eb",
-    "CQ-AGENT": "{os:android,imei:7f918d21082ed7eb,osversion:7.1.1,network:wifi,device_model:OPPO R9s,version:10.1.1,brand:oppo,core:2.0.0}",
-    timestamp: "",
-    noncestr: "huangye",
-    sign: _0x45c4f9,
-    "User-Agent": "chuangqi.o.21.com.iqilu.ksd/10.1.1",
-    Host: "sdxw.iqilu.com",
-    Connection: "Keep-Alive"
-  };
-  const _0x1cc25b = ku9.request(_0x1231fd, "GET", _0x1f47d6);
-  const _0x7921db = {
-    error: "请求失败"
-  };
-  if (_0x1cc25b.code !== 200) {
-    return JSON.stringify(_0x7921db);
-  }
-  const _0x308b30 = "bb97587cfa85ece5549a3d257f7919f3";
-  const _0x1166df = "0000000000000000";
-  const _0x285f6b = ku9.opensslDecrypt(_0x1cc25b.body, "AES-256-CBC", _0x308b30, 0, _0x1166df);
-  if (_0x45e80b) {
-    {
-      const [_0x5a33d1, _0x5c9cd4] = _0x45e80b.split("-");
-      const _0x12dcf6 = _0x3d983b(_0x5a33d1);
-      const _0x5e7ca8 = _0x3d983b(_0x5c9cd4);
-      const _0x10c74f = "https://" + _0x59591c[_0x4f8db4] + "/v1/app/play/look/back?start=" + _0x12dcf6 + "&end=" + _0x5e7ca8 + "&channelid=" + _0x4510a6 + "&orgid=21";
-      const _0x69fff9 = ku9.get(_0x10c74f, JSON.stringify(_0x1f47d6));
-      const _0x135528 = JSON.parse(_0x69fff9);
-      playurl = _0x135528.data.url;
-      const _0x14b647 = {
-        url: playurl
-      };
-      return JSON.stringify(_0x14b647);
-    }
-  } else {
-    const _0x1b391f = JSON.parse(_0x285f6b);
-    const _0xe0136d = {
-      error: "无效响应"
+function main(_0x1d6f2e) {
+  const _0x28b7dd = _0x1d6f2e.url,
+    _0x29beb7 = ku9.getQuery(_0x28b7dd, "id") || "szws",
+    _0x4c05a2 = {
+      "dnzh": ["7gf6a72", "http://vod.center.hljtv.com/lsdream/"],
+      "mlzh": ["wy7HG9x", "http://vod.center.hljtv.com/lsdream/"],
+      "sfhzh": ["gS7S5pS", "http://vod.center.hljtv.com/lsdream/"],
+      "jyzh": ["1lqKC4B", "http://vod.center.hljtv.com/lsdream/"],
+      "tlzh": ["QgOu88F", "http://vod.center.hljtv.com/lsdream/"],
+      "nhzh": ["Ig4YRW0", "http://vod.center.hljtv.com/lsdream/"],
+      "yazh": ["1szOvMr", "http://vod.center.hljtv.com/lsdream/"],
+      "yyzh": ["d037rmI", "http://vod.center.hljtv.com/lsdream/"],
+      "sxiws": ["q8RVWgs", "https://livehhhttps.sxrtv.com/lsdream/"],
+      "sxjj": ["4j01KWX", "https://livehhhttps.sxrtv.com/lsdream/"],
+      "sxys": ["Md571Kv", "https://livehhhttps.sxrtv.com/lsdream/"],
+      "sxshfz": ["p4y5do9", "https://livehhhttps.sxrtv.com/lsdream/"],
+      "sxwtsh": ["Y00Xezi", "https://livehhhttps.sxrtv.com/lsdream/"],
+      "sxhh": ["lce1mC4", "https://livehhhttps.sxrtv.com/lsdream/"],
+      "dlzh": ["tcb3IB5", "http://live.dltv.cn/"],
+      "dlsh": ["JzcFkF4", "http://live.dltv.cn/"],
+      "dlwt": ["hxT7Fc3", "http://live.dltv.cn/"],
+      "dlzhys": ["8cuL6wa", "http://live.dltv.cn/"],
+      "dlse": ["q6tZ6Ba", "http://live.dltv.cn/"],
+      "dlgw": ["N4S4uAj", "http://live.dltv.cn/"],
+      "sxws": ["X6feiLQ", "http://live.sxtvs.com.cn/lsdream/"],
+      "sxxwzx": ["SeT8Mem", "http://live.sxtvs.com.cn/lsdream/"],
+      "sxdsqc": ["zAJprk2", "http://live.sxtvs.com.cn/lsdream/"],
+      "sxtyxx": ["LLhVrGZ", "http://live.sxtvs.com.cn/lsdream/"],
+      "sxsh": ["a73O8Sd", "http://live.sxtvs.com.cn/lsdream/"],
+      "sxgg": ["8aCj3gK", "http://live.sxtvs.com.cn/lsdream/"],
+      "sxyd": ["Au7pR2j", "http://live.sxtvs.com.cn/lsdream/"],
+      "xaxwzh": ["BmS21Wa", "http://live.sxtvs.com.cn/lsdream/"],
+      "ylxwzh": ["EQiV8hZ", "http://live.sxtvs.com.cn/lsdream/"],
+      "xyxwzh": ["9xmmLy4", "http://live.sxtvs.com.cn/lsdream/"],
+      "yaxwzh": ["14c199y", "http://live.sxtvs.com.cn/lsdream/"],
+      "tcxwzh": ["78d3NMg", "http://live.sxtvs.com.cn/lsdream/"],
+      "akxwzh": ["ebUpMpG", "http://live.sxtvs.com.cn/lsdream/"],
+      "wnxwzh": ["BmSLiAx", "http://live.sxtvs.com.cn/lsdream/"],
+      "slxwzh": ["21HiFQt", "http://live.sxtvs.com.cn/lsdream/"],
+      "ylinxwzh": ["Uys5UFs", "http://live.sxtvs.com.cn/lsdream/"],
+      "hzxwzh": ["mul2l4m", "http://live.sxtvs.com.cn/lsdream/"],
+      "tyxwzh": ["49VAfrw", "https://tytv-hls.sxtygdy.com/"],
+      "tyjjsh": ["u8BmT6h", "https://tytv-hls.sxtygdy.com/"],
+      "tysjfz": ["phsry3e", "https://tytv-hls.sxtygdy.com/"],
+      "tyys": ["J4EX72D", "https://tytv-hls.sxtygdy.com/"],
+      "tywt": ["rk8Z088", "https://tytv-hls.sxtygdy.com/"],
+      "tyblg": ["iancgyD", "https://tytv-hls.sxtygdy.com/"],
+      "tycssh": ["i88rmGU", "https://tytv-hls.sxtygdy.com/"],
+      "tyjy": ["g4XtSCF", "https://tytv-hls.sxtygdy.com/"],
+      "stxwzh": ["lKGXIQa", "http://sttv-hls.strtv.cn", 1],
+      "sttvjj": ["7xjJK9d", "http://sttv-hls.strtv.cn", 1],
+      "sttvys": ["G7Kql7a", "http://sttv-hls.strtv.cn", 1],
+      "stfmjj": ["L3y6rt8", "http://sttv-hls.strtv.cn"],
+      "stfmyy": ["s7k681h", "http://sttv-hls.strtv.cn"],
+      "stfmzh": ["Li7mg21", "http://sttv-hls.strtv.cn"],
+      "jmzh": ["4x3T0dO", "http://tidelive.jmtv.cn/lsdream/"],
+      "jmqxsh": ["qzohscw", "http://tidelive.jmtv.cn/lsdream/"],
+      "zttv1": ["Ii3aRRS", "https://live.zttv.cn/lsdream/"],
+      "zttv3": ["EiCgjnA", "https://live.zttv.cn/lsdream/"],
+      "szws": ["AxeFRth", "https://sztv-live.sztv.com.cn", 1],
+      "szyl": ["1q4iPng", "https://sztv-live.sztv.com.cn", 1],
+      "szse": ["1SIQj6s", "https://sztv-live.sztv.com.cn", 1],
+      "szgg": ["2q76Sw2", "https://sztv-live.sztv.com.cn", 1],
+      "szcjsh": ["3vlcoxP", "https://sztv-live.sztv.com.cn", 1],
+      "szdsj": ["4azbkoY", "https://sztv-live.sztv.com.cn", 1],
+      "szds": ["ZwxzUXr", "https://sztv-live.sztv.com.cn", 1],
+      "szgj": ["sztvgjpd", "https://sztv-live.sztv.com.cn"],
+      "szyd": ["wDF6KJ3", "https://sztv-live.sztv.com.cn", 1],
+      "yhgw": ["BJ5u5k2", "https://sztv-live.sztv.com.cn", 1],
+      "sztyjk": ["sztvtyjk", "https://sztv-live.sztv.com.cn", 1],
+      "ntxwzh": ["4f1", "https://nt-hls.ntjoy.com/live/", 2]
+    },
+    _0x5a6d86 = Math.floor(Date.now() / 1000),
+    _0x1cd908 = ku9.md5(_0x5a6d86 + _0x4c05a2[_0x29beb7][0] + "cutvLiveStream|Dream2017"),
+    _0x581607 = "http://hls-api.sztv.com.cn/getCutvHlsLiveKey?t=" + _0x5a6d86 + "&token=" + _0x1cd908 + "&id=" + _0x4c05a2[_0x29beb7][0],
+    _0x18941d = {
+      "User-Agent": "Mozilla/5.0"
     };
-    if (!_0x1b391f.data) {
-      return JSON.stringify(_0xe0136d);
-    }
-    const _0x2bfe05 = _0x5bccdf[0];
-    for (const _0x24b299 of _0x1b391f.data) {
-      if (_0x24b299.id === _0x2bfe05) {
-        const _0x495aea = {
-          "User-Agent": "okhttp/3.12.11"
-        };
-        return JSON.stringify({
-          url: _0x24b299.stream,
-          headers: JSON.stringify(_0x495aea)
-        });
-      }
-    }
+  let _0x32e396;
+  try {
+    _0x32e396 = ku9.get(_0x581607, JSON.stringify(_0x18941d));
+  } catch (_0x5aeeb4) {
+    return JSON.stringify({
+      "error": "Failed to fetch data: " + _0x5aeeb4.message,
+      "url": _0x581607
+    });
   }
-  const _0x4eeb2a = {
-    error: "未找到频道流地址"
-  };
-  return JSON.stringify(_0x4eeb2a);
-  function _0x3d983b(_0x23cda5) {
-    const _0x541a2c = _0x23cda5.slice(0, 4) + "-" + _0x23cda5.slice(4, 6) + "-" + _0x23cda5.slice(6, 8) + "T" + _0x23cda5.slice(8, 10) + ":" + _0x23cda5.slice(10, 12) + ":" + _0x23cda5.slice(12, 14);
-    const _0x1980c2 = new Date(_0x541a2c);
-    const _0x56c1ea = _0x1980c2.getTime();
-    const _0x1eb0a7 = Math.floor(_0x56c1ea / 1000);
-    return _0x1eb0a7;
+  if (!_0x32e396) return JSON.stringify({
+    "error": "Empty response from server",
+    "url": _0x581607
+  });
+  const _0x2ac0ce = _0x32e396 || "defaultPname";
+  if (!_0x4c05a2[_0x29beb7][2]) {
+    const _0x51daf4 = _0x4c05a2[_0x29beb7][1] + _0x4c05a2[_0x29beb7][0] + "/" + _0x2ac0ce + ".m3u8";
+    return JSON.stringify({
+      "url": _0x51daf4
+    });
+  }
+  if (_0x4c05a2[_0x29beb7][2] === 1) {
+    const _0xfc5e34 = _0x29beb7.toLowerCase();
+    let _0xbabeac = {
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36",
+      "Referer": "https://www.sztv.com.cn/pindao/index.html?id=7868",
+      "Origin": "https://www.sztv.com.cn"
+    };
+    const _0x1aa141 = (Math.floor(Date.now() / 1000) + 7200).toString(16),
+      _0x300dce = _0xfc5e34.startsWith("st") ? "bf9b2cab35a9c38857b82aabf99874aa96b9ffbb" : "ejow6p6p6hmrm9g96beh2knecdq5kyv9bp0zxyg7",
+      _0x2a1a00 = "/" + _0x4c05a2[_0x29beb7][0] + "/500/" + _0x2ac0ce + ".m3u8",
+      _0x2ba36e = ku9.md5(_0x300dce + _0x2a1a00 + _0x1aa141),
+      _0x330469 = _0x4c05a2[_0x29beb7][1] + (_0x2a1a00 + "?sign=" + _0x2ba36e + "&t=" + _0x1aa141);
+    return JSON.stringify({
+      "url": _0x330469,
+      "headers": _0xbabeac
+    });
   }
 }
