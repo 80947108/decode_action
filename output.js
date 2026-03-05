@@ -1,4 +1,4 @@
-//Thu Mar 05 2026 14:11:30 GMT+0000 (Coordinated Universal Time)
+//Thu Mar 05 2026 14:13:23 GMT+0000 (Coordinated Universal Time)
 //Base:<url id="cv1cref6o68qmpt26ol0" type="url" status="parsed" title="GitHub - echo094/decode-js: JS混淆代码的AST分析工具 AST analysis tool for obfuscated JS code" wc="2165">https://github.com/echo094/decode-js</url>
 //Modify:<url id="cv1cref6o68qmpt26olg" type="url" status="parsed" title="GitHub - smallfawn/decode_action: 世界上本来不存在加密，加密的人多了，也便成就了解密" wc="741">https://github.com/smallfawn/decode_action</url>
 (() => {
@@ -680,7 +680,7 @@
                     _0x257cb4.musicInfo.platform = _0x290e00;
                     _0x257cb4.musicInfo.version = _0xde7089.version;
                     _0x257cb4.musicInfo.neteaseCookie = _0x2e1e9f;
-                    _0x257cb4.musicInfo.tencentCookie = _0x5b4e9c;
+                    _0x257cb4.musicInfo.tencentCookie = "";
                     switch (_0x2b6ee1) {
                       case "musicUrl":
                         return _0x33fa5c[_0x33ec51].musicUrl(_0x257cb4.musicInfo, _0x257cb4.type).catch(_0x2bd5f2 => {
